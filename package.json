@@ -8,10 +8,20 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@prisma/client": "^6.0.1",
+    "@vercel/blob": "^2.0.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "csv-parser": "^3.2.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.561.0",
+    "multer": "^2.0.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.10.1"
@@ -29,6 +39,7 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "jsdom": "^27.3.0",
+    "prisma": "^6.0.1",
     "vite": "^7.2.4",
     "vitest": "^4.0.16"
   }
