@@ -23,7 +23,7 @@ export function AdminDashboard() {
     const fetchUsers = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:3001/api/users', {
+            const response = await fetch('/api/users', {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (response.ok) {
@@ -46,7 +46,7 @@ export function AdminDashboard() {
         if (!window.confirm('¿Estás seguro de eliminar este usuario?')) return;
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:3001/api/users/${id}`, {
+            const response = await fetch(`/api/users/${id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
@@ -64,8 +64,8 @@ export function AdminDashboard() {
         e.preventDefault();
         const token = localStorage.getItem('token');
         const url = editingId
-            ? `http://localhost:3001/api/users/${editingId}`
-            : 'http://localhost:3001/api/users';
+            ? `/api/users/${editingId}`
+            : '/api/users';
 
         const method = editingId ? 'PUT' : 'POST';
 

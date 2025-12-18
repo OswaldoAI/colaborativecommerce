@@ -11,7 +11,7 @@ export function CategoryPage() {
     useEffect(() => {
         setLoading(true);
         // Fetch products by category
-        fetch(`http://localhost:3001/api/products?categoryId=${id}`)
+        fetch(`/api/products?categoryId=${id}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -22,7 +22,7 @@ export function CategoryPage() {
                 } else {
                     // Fallback to fetching category details if needed, or just Generic.
                     // Let's do a quick fetch for category name if list is empty or for accuracy.
-                    fetch(`http://localhost:3001/api/categories`)
+                    fetch(`/api/categories`)
                         .then(r => r.json())
                         .then(cats => {
                             const findCat = (list) => {

@@ -125,6 +125,23 @@ Almacena la información de todos los usuarios del sistema, incluyendo administr
 | `createdAt` | DateTime | Default: now() | Fecha de registro. |
 | `updatedAt` | DateTime | UpdatedAt | Fecha de última actualización. |
 
+## Despliegue y Almacenamiento
+
+### Infraestructura (Vercel)
+La aplicación se ha migrado a una arquitectura serverless en **Vercel**:
+- **API**: Implementada como una función única en `/api/index.js` que envuelve la app Express.
+- **Frontend**: Desplegado como sitio estático con el preset de Vite.
+- **Base de Datos**: Conectada mediante `DATABASE_URL` (Prisma).
+
+### Almacenamiento de Imágenes (Vercel Blob)
+Para evitar problemas de permisos con servicios externos (como Google Drive), se integró **Vercel Blob**:
+- Las imágenes de productos se suben directamente desde el panel de administración.
+- El servidor recibe el archivo y lo transfiere a Vercel Blob, almacenando solo la URL pública en la base de datos.
+- Se implementó un sistema de "fallback" con iconos locales por si alguna imagen falla al cargar.
+
+---
+*Ultima actualización: 18 de Diciembre, 2025*
+
 #### 2. Modelo `Product`
 Catálogo de productos disponibles para la venta.
 

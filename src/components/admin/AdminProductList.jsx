@@ -15,7 +15,7 @@ export function AdminProductList() {
 
     const fetchProducts = async () => {
         try {
-            const res = await fetch('http://localhost:3001/api/products');
+            const res = await fetch('/api/products');
             const data = await res.json();
             setProducts(data);
         } catch (error) {
@@ -28,7 +28,7 @@ export function AdminProductList() {
     const handleDelete = async (id) => {
         if (!window.confirm('¿Eliminar producto?')) return;
         try {
-            const res = await fetch(`http://localhost:3001/api/products/${id}`, { method: 'DELETE' });
+            const res = await fetch(`/api/products/${id}`, { method: 'DELETE' });
             if (res.ok) fetchProducts();
         } catch (error) {
             console.error(error);
@@ -44,7 +44,7 @@ export function AdminProductList() {
 
         setUploading(true);
         try {
-            const res = await fetch('http://localhost:3001/api/products/bulk', {
+            const res = await fetch('/api/products/bulk', {
                 method: 'POST',
                 body: formData
             });

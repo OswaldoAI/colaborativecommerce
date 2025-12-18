@@ -17,7 +17,7 @@ export function AdminProductForm({ product, onClose, onSave }) {
 
     useEffect(() => {
         // Fetch Categories
-        fetch('http://localhost:3001/api/categories')
+        fetch('/api/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
             .catch(err => console.error(err));
@@ -74,8 +74,8 @@ export function AdminProductForm({ product, onClose, onSave }) {
         }
 
         const url = product
-            ? `http://localhost:3001/api/products/${product.id}`
-            : 'http://localhost:3001/api/products';
+            ? `/api/products/${product.id}`
+            : '/api/products';
         const method = product ? 'PUT' : 'POST';
 
         try {

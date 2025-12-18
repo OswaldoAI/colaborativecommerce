@@ -7,7 +7,7 @@ export function BurgerMenu() {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3001/api/categories')
+        fetch('/api/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
             .catch(err => console.error('Error loading mobile menu categories:', err));

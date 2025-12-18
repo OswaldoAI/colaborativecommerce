@@ -12,7 +12,7 @@ export function Header() {
     const isAdmin = location.pathname.startsWith('/admin');
 
     useEffect(() => {
-        fetch('http://localhost:3001/api/categories')
+        fetch('/api/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
             .catch(err => console.error(err));
