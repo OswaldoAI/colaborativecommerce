@@ -14,6 +14,16 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+// Debug route
+app.get('/api/ping', (req, res) => {
+    res.json({
+        status: 'ok',
+        message: 'HealthStore API is reachable',
+        env: process.env.NODE_ENV,
+        hasDbUrl: !!process.env.DATABASE_URL
+    });
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
